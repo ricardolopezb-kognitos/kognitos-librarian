@@ -1,24 +1,40 @@
 {
   "$schema": "https://www.raycast.com/schemas/extension.json",
-  "name": "bdk-librarian",
-  "title": "BDK Librarian",
-  "description": "Provides fast access to BDK repos",
-  "icon": "extension-icon.png",
+  "name": "kognitos-bdk-librarian",
+  "title": "Kognitos Librarian",
+  "description": "Provides fast access to BDK repos.",
+  "icon": "kog.png",
   "author": "ricardolopezb-kognitos",
   "owner": "kognitos-integrations",
   "license": "MIT",
   "commands": [
     {
       "name": "search-books",
-      "title": "Search books",
-      "description": "Searches Github for our book repos",
-      "mode": "no-view"
+      "title": "Search Books",
+      "description": "Quickly access our book repos in Github.",
+      "mode": "no-view",
+      "arguments": [
+        {
+          "name": "bookName",
+          "type": "text",
+          "required": true,
+          "placeholder": "Enter Book name (e.g., microsoft)"
+        }
+      ]
     },
     {
-      "name": "search-repos",
-      "title": "Search Repos",
-      "description": "Searches Github for other Kognitos repos.",
-      "mode": "no-view"
+      "name": "search-kognitos-repos",
+      "title": "Search Kognitos Repos",
+      "description": "Quickly access our Kognitos repos in Github.",
+      "mode": "no-view",
+      "arguments": [
+        {
+          "name": "repoName",
+          "type": "text",
+          "required": true,
+          "placeholder": "Enter Repo name (e.g., bdk-runtime)"
+        }
+      ]
     }
   ],
   "dependencies": {

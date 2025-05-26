@@ -3,13 +3,13 @@ import { openUrlWithToasts } from "./utils";
 
 // Define the structure of arguments your command expects
 interface CommandArguments {
-  bookName: string; // This must match the "name" field in package.json arguments
+  repoName: string; // This must match the "name" field in package.json arguments
 }
 
 export default async function Command(props: LaunchProps<{ arguments: CommandArguments }>) {
-  const { bookName } = props.arguments;
+  const { repoName } = props.arguments;
 
-  if (!bookName) {
+  if (!repoName) {
     await showToast({
       style: Toast.Style.Failure,
       title: "No Book Name Provided",
@@ -18,7 +18,7 @@ export default async function Command(props: LaunchProps<{ arguments: CommandArg
     return;
   }
 
-  const urlToOpen = `https://github.com/kognitos/book-${bookName}`;
+  const urlToOpen = `https://github.com/kognitos/${repoName}`;
 
-  await openUrlWithToasts(urlToOpen, "Opening Book Repo...");
+  await openUrlWithToasts(urlToOpen, "Opening Kognitos Repo...");
 }
