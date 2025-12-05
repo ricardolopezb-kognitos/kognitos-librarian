@@ -7,7 +7,7 @@ interface CommandArguments {
 }
 
 export default async function Command(props: LaunchProps<{ arguments: CommandArguments }>) {
-  const { repoName } = props.arguments;
+  let { repoName } = props.arguments;
 
   if (!repoName) {
     await showToast({
@@ -16,6 +16,10 @@ export default async function Command(props: LaunchProps<{ arguments: CommandArg
       message: "Please enter a Book name.",
     });
     return;
+  }
+  
+  if (repoName === "transwarp") {
+    repoName = "voyager-transwarp";
   }
 
   const urlToOpen = `https://github.com/kognitos/${repoName}`;
