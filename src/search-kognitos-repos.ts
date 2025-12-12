@@ -6,6 +6,12 @@ interface CommandArguments {
   repoName: string; // This must match the "name" field in package.json arguments
 }
 
+const specialNameMappings: Record<string, string> = {
+  transwarp: "voyager-transwarp",
+  runtime: "bdk-runtime",
+  gitops: "kognitos2-gitops",
+};
+
 export default async function Command(props: LaunchProps<{ arguments: CommandArguments }>) {
   let { repoName } = props.arguments;
 
@@ -17,9 +23,9 @@ export default async function Command(props: LaunchProps<{ arguments: CommandArg
     });
     return;
   }
-  
-  if (repoName === "transwarp") {
-    repoName = "voyager-transwarp";
+
+  if (specialNameMappings[repoName]) {
+    repoName = specialNameMappings[repoName];
   }
 
   const urlToOpen = `https://github.com/kognitos/${repoName}`;
